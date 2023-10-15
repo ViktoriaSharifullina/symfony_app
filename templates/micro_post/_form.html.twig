@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+<div>{{ form_errors(form) }}</div>
+
+<div>{{ form_label(form.title, 'Title', {'label_attr': {'class': 'block text-sm text-slate-600 dark:text-white font-medium'}}) }}</div>
+<div class="mb-3">{{ form_widget(form.title, {'attr': {'class': 'block w-2/3 shadow-sm border-slate-400 dark:border-transparent dark:text-slate-600 rounded-md border p-1 mt-1 mb-2'}}) }}</div>
+{{ form_errors(form.title) }}
+
+<div>{{ form_label(form.text, 'Text', {'label_attr': {'class': 'block text-sm text-slate-600 dark:text-white font-medium'}}) }}</div>
+<div class="mb-3">{{ form_widget(form.text, {'attr': {'class': 'block w-2/3 shadow-sm border-slate-400 dark:border-transparent dark:text-slate-600 rounded-md border p-1 mt-1 mb-2'}}) }}</div>
+{{ form_errors(form.text) }}
+
+<div>
+	<button class="bg-sky-600 text-white font-bold py-1 px-3 rounded mt-3 dark:bg-sky-600 hover:bg-sky-700 dark:hover:bg-sky-500 rounded-md" type='submit'>Save</button>
+</div>
+{{ form_end(form) }}
