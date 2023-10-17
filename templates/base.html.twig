@@ -34,11 +34,16 @@ darkMode: 'class'
 			</div>
 
 			<div class="text-right">
-				<div class="text-lg text-slate-500 dark:text-slate-500 hover:font-bold">
-					<a href="{{ path('app_login') }}">Login</a>
-				</div>
-				<div class="text-lg text-slate-500 dark:text-slate-500 hover:font-bold">
-					<a href="{{ path('app_micro_post_add')}}">Add New</a>
+				<div class="text-lg text-slate-500 dark:text-slate-500">
+					{% if app.user %}
+						<div>
+							<a href="{{ path('app_micro_post_add')}}" class="hover:font-bold">Add New</a>
+						</div>
+					{% else %}
+						<div>
+							<a href="{{ path('app_login') }}" class="hover:font-bold">Login</a>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -49,7 +54,5 @@ darkMode: 'class'
 			{% endfor %}
 			{% block body %}{% endblock %}
 		</div>
-
-
 	</body>
-</html>
+</html></body></html>
