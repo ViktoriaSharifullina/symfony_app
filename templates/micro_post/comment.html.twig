@@ -5,7 +5,9 @@
 
 {% block bread %}
 	>
-	<a href="{{ path('app_micro_post_show', {post: post.id}) }}">Post</a>
+	<div class="hover:font-semibold mr-2 ml-2">
+		<a href="{{ path('app_micro_post_show', {post: post.id}) }}">Post</a>
+	</div>
 	> Comment
 {% endblock %}
 
