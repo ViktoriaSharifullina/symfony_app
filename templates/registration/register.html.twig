@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block bread %}
+	> Register
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="rounded-md p-2 border-red-300 bg-red-50 border dark:border-red-600 dark:bg-red-700 dark:text-white mb-4" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	{{ form_errors(registrationForm) }}
+
+	<div class="mt-10">
+		{{ form_start(registrationForm) }}
+		<div>
+			<div>{{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'block text-sm text-slate-600 dark:text-white font-medium'}}) }}</div>
+			<div class="mb-3">{{ form_widget(registrationForm.email, {'attr': {'class': 'block w-2/3 shadow-sm border-slate-400 dark:border-transparent dark:text-slate-600 rounded-md border p-1 mt-1 mb-2'}}) }}</div>
+			{{ form_errors(registrationForm.email) }}
+		</div>
+
+		<div class="">
+			<div>
+				<div>{{ form_label(registrationForm.plainPassword.first, 'Password', {'label_attr': {'class': 'block text-sm text-slate-600 dark:text-white font-medium'}}) }}</div>
+				<div class="mb-3">{{ form_widget(registrationForm.plainPassword.first, {'attr': {'class': 'block shadow-sm border-slate-400 dark:border-transparent dark:text-slate-600 rounded-md border p-1 mt-1 mb-2 w-2/3'}}) }}</div>
+				{{ form_errors(registrationForm.plainPassword.first) }}
+			</div>
+
+			<div>
+				<div>{{ form_label(registrationForm.plainPassword.second, 'Repeated password', {'label_attr': {'class': 'block text-sm text-slate-600 dark:text-white font-medium'}}) }}</div>
+				<div class="mb-3">{{ form_widget(registrationForm.plainPassword.second, {'attr': {'class': 'block shadow-sm border-slate-400 dark:border-transparent dark:text-slate-600 rounded-md border p-1 mt-1 mb-2 w-2/3'}}) }}</div>
+				{{ form_errors(registrationForm.plainPassword.second) }}
+			</div>
+		</div>
+
+
+		<div class="flex items-center mt-6">
+			{{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'h-5 w-5 rounded border-gray border text-indigo-300 mr-2'}}
+			)}}
+			{{ form_label(registrationForm.agreeTerms, 'Agree to terms', {'label_attr': {'class': 'text-sm text-slate-700 dark:text-white font-medium'}})}}
+		</div>
+
+		<div>
+			<button type="submit" class="bg-sky-600 text-white font-bold py-1 px-3 rounded mt-5 dark:bg-sky-600 hover:bg-sky-700 dark:hover:bg-sky-500 rounded-md">Register</button>
+		</div>
+
+		{{ form_end(registrationForm) }}
+
+		<div class="mt-2 text-center text-slater-600 dark:text-slater-400">
+			Already have an account?
+			<a href='{{ path('app_login')}}' class='text-sky-600 hover:font-bold hover:text-sky-700 dark:text-sky-500 dark:hover:text-sky-400'>Login here</a>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="">
+<html class="dark">
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -34,7 +34,7 @@ darkMode: 'class'
 			</div>
 
 			<div class="text-right">
-				<div class="text-lg text-slate-500 dark:text-slate-500">
+				<div class="text-lg text-slate-500 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200">
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 						<div>
 							<a href="{{ path('app_micro_post_add')}}" class="hover:font-bold">Add New</a>
@@ -46,6 +46,9 @@ darkMode: 'class'
 						<div>
 							<a href="{{ path('app_login') }}" class="hover:font-bold">Login</a>
 						</div>
+						<div>
+							<a href="{{ path('app_register') }}" class="hover:font-bold">Register</a>
+						</div>
 					{% endif %}
 				</div>
 			</div>
@@ -53,7 +56,7 @@ darkMode: 'class'
 
 		<div class="w-full md:w-2/3 mx-auto">
 			{% for message in app.flashes('success') %}
-				<div class="rounded-md p-2 border-green-300 bg-green-50 border dark:border-green-600 dark:bg-green-700 dark:text-white mb-4">{{ message }}</div>
+				<div class="rounded-md p-2 border-green-300 bg-green-50 border dark:border-green-400 dark:bg-green-600 dark:text-white mb-4">{{ message }}</div>
 			{% endfor %}
 			{% block body %}{% endblock %}
 		</div>
