@@ -1,6 +1,6 @@
 <div class="mb-3">
 	<div class="text-lg text-slate-500 dark:text-slate-400">
-		<a href="#">{{ post.author.email }}</a>
+		<a href="{{ path('app_profile', { id: post.author.id}) }}">{{ post.author.email }}</a>
 	</div>
 	<div class="text-2xl">
 		<a href="{{ path('app_micro_post_show', {post: post.id}) }}">
@@ -15,10 +15,17 @@
 	</div>
 
 	<div>
-		<a href="#">
-			Like
-			<span class="px-2 rounded-md bg-slate-200 dark:bg-gray-700">0</span>
-		</a>
+		{% if post.likedBy.contains(app.user) %}
+			<a href="{{ path('app_unlike', {id: post.id}) }}">
+				Unlike
+				<span class="px-2 rounded-md bg-slate-200 dark:bg-gray-700">{{ post.likedBy.count }}</span>
+			</a>
+		{% else %}
+			<a href="{{ path('app_like', {id: post.id}) }}">
+				Like
+				<span class="px-2 rounded-md bg-slate-200 dark:bg-gray-700">{{ post.likedBy.count }}</span>
+			</a>
+		{% endif %}
 	</div>
 	<div>
 		<a href="#">
