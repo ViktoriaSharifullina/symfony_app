@@ -29,6 +29,7 @@
 
 ```bash
 docker-compose up -d
+```
 
 Эта команда запустит два контейнера: MySQL (mariadb) и Adminer.
 
